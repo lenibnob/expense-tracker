@@ -4,12 +4,15 @@
  */
 package oopr212.expensetrackerprogram;
 
+import java.sql.*;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ASUS
  */
 public class MainPage extends javax.swing.JFrame {
-
+    private DefaultTableModel model1;
     /**
      * Creates new form MainPage
      */
@@ -29,8 +32,10 @@ public class MainPage extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         logout_btn = new javax.swing.JButton();
+        bal_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Main Page");
 
         view_e_btn.setText("View Expenses");
         view_e_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -48,11 +53,7 @@ public class MainPage extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"15000", "3500", "25500"},
-                {"15000", "1500", "14000"},
-                {"500", null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Income", "Expense", "Balance"
@@ -67,36 +68,44 @@ public class MainPage extends javax.swing.JFrame {
             }
         });
 
+        bal_btn.setText("Get Balance");
+        bal_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bal_btnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(view_e_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(view_i_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(logout_btn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(bal_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(view_i_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(view_e_btn))
+                    .addComponent(logout_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
                         .addComponent(view_e_btn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(view_i_btn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(logout_btn)
-                        .addGap(19, 19, 19))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bal_btn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(logout_btn)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -120,6 +129,62 @@ public class MainPage extends javax.swing.JFrame {
         IncomesPage page = new IncomesPage();
         page.show();
     }//GEN-LAST:event_view_i_btnActionPerformed
+
+    private void bal_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bal_btnActionPerformed
+        // Connect to database
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/expense_tracker", "root", "");
+             Statement statement = connection.createStatement()) {
+            
+            // Account retrieval
+            int userID = -1;
+            ResultSet accountSet = statement.executeQuery("SELECT userID FROM program_user");
+            if(accountSet.next()){
+                userID = accountSet.getInt("userID");
+            }else{
+                System.err.println("No user ID found");
+            }
+            
+            // Main Query
+            String query = "SELECT " +
+                   "COALESCE(SUM(i.amount), 0) AS total_income, " +
+                   "COALESCE((SELECT SUM(amount) FROM expenses WHERE account_id = ?), 0) AS total_expense, " +
+                   "COALESCE(SUM(i.amount), 0) - COALESCE((SELECT SUM(amount) FROM expenses WHERE account_id = ?), 0) AS balance " +
+               "FROM " +
+                   "incomes i " +
+               "WHERE " +
+                   "i.account_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            
+            // Set the account ID parameter
+            preparedStatement.setInt(1, userID);
+            preparedStatement.setInt(2, userID);
+            preparedStatement.setInt(3, userID);
+            
+            ResultSet resultSet = preparedStatement.executeQuery();
+            
+            // Create table model
+            model1 = new DefaultTableModel();
+            jTable1.setModel(model1);
+            
+            // Add columns to the table model
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            int columnCount = metaData.getColumnCount();
+            for (int columnIndex = 1; columnIndex <= columnCount; columnIndex++) {
+                model1.addColumn(metaData.getColumnName(columnIndex));
+            }
+            
+            // Populate the table with data
+            while (resultSet.next()) {
+                Object[] rowData = new Object[columnCount];
+                for (int i = 0; i < columnCount; i++) {
+                    rowData[i] = resultSet.getObject(i + 1);
+                }
+                model1.addRow(rowData);
+            }
+        }catch(SQLException e){
+            System.err.println("Error connecting to the database" + e.getMessage());
+        }
+    }//GEN-LAST:event_bal_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,6 +222,7 @@ public class MainPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bal_btn;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton logout_btn;

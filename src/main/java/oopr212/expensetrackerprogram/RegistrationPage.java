@@ -4,6 +4,9 @@
  */
 package oopr212.expensetrackerprogram;
 
+import java.sql.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ASUS
@@ -130,7 +133,30 @@ public class RegistrationPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void register_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_register_btnActionPerformed
-        // TODO add your handling code here:
+        // Get username
+        String username = username_textfield.getText();
+        // Get password
+        String password = pass_textfield.getText();
+
+        // Connect to Database
+        try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/expense_tracker", "root", "");
+            Statement statement = connection.createStatement()){
+            
+             // Check if username already exists
+             ResultSet resultSet = statement.executeQuery("SELECT * FROM accounts WHERE username = '" + username + "'");
+             if(resultSet.next()){
+                // Username exists
+                JOptionPane.showMessageDialog(null, "Username already exists.");
+             }else{
+                 // Add account
+                int rowsAffected = statement.executeUpdate("INSERT INTO accounts (account_id, username, password) VALUES (null, '" + username + "', '" + password + "')");
+                System.out.println(rowsAffected + "row(s) affected");
+                JOptionPane.showMessageDialog(null, "Account added");
+             }
+             connection.close();
+        }catch(SQLException e){
+            System.err.println("Error connecting to database " + e.getMessage());
+        }
     }//GEN-LAST:event_register_btnActionPerformed
 
     private void return_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_return_btnActionPerformed

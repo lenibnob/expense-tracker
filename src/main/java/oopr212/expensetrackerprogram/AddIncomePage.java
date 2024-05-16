@@ -116,7 +116,7 @@ public class AddIncomePage extends javax.swing.JFrame {
     private void add_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_btnActionPerformed
         // Get variables
         String input = amt_textfield.getText();
-        int amount = Integer.parseInt(input);
+        Double amount = Double.parseDouble(input);
         String desc = desc_textfield.getText();
         Date date = jDateChooser1.getDate();
 
@@ -137,7 +137,7 @@ public class AddIncomePage extends javax.swing.JFrame {
             String insertQuery = "INSERT INTO incomes (account_id, `amount`, description, `date`) VALUES (?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
             preparedStatement.setInt(1, userID);
-            preparedStatement.setInt(2, amount);
+            preparedStatement.setDouble(2, amount);
             preparedStatement.setString(3, desc);
 
             // Convert java date to sql

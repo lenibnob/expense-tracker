@@ -150,13 +150,13 @@ public class MainPage extends javax.swing.JFrame {
             
             // Main Query
             String query = "SELECT " +
-                   "COALESCE(SUM(i.amount), 0) AS total_income, " +
-                   "COALESCE((SELECT SUM(amount) FROM expenses WHERE account_id = ?), 0) AS total_expense, " +
-                   "COALESCE(SUM(i.amount), 0) - COALESCE((SELECT SUM(amount) FROM expenses WHERE account_id = ?), 0) AS balance " +
-               "FROM " +
-                   "incomes i " +
-               "WHERE " +
-                   "i.account_id = ?";
+                               "COALESCE(SUM(i.amount), 0) AS total_income, " +
+                               "COALESCE((SELECT SUM(amount) FROM expenses WHERE account_id = ?), 0) AS total_expense, " +
+                               "COALESCE(SUM(i.amount), 0) - COALESCE((SELECT SUM(amount) FROM expenses WHERE account_id = ?), 0) AS balance " +
+                           "FROM " +
+                               "incomes i " +
+                           "WHERE " +
+                               "i.account_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             
             // Set the account ID parameter

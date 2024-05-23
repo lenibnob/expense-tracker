@@ -148,6 +148,7 @@ public class AddExpensePage extends javax.swing.JFrame {
             // Convert java date to sql
             java.sql.Date sqlDate = new java.sql.Date(date.getTime());
             preparedStatement.setDate(4, sqlDate);
+            
             int rowsAffected = preparedStatement.executeUpdate();
             System.out.println(rowsAffected + "row(s) affected");
             

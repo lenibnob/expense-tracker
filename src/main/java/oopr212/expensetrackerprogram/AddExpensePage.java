@@ -124,7 +124,7 @@ public class AddExpensePage extends javax.swing.JFrame {
         Double amount = Double.parseDouble(input);
         String desc = desc_textfield.getText();
         Date date = jDateChooser1.getDate();
-  
+        
         //Connect to Database
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/expense_tracker", "root", "");
              Statement statement = connection.createStatement()) {
@@ -138,6 +138,7 @@ public class AddExpensePage extends javax.swing.JFrame {
             }else{
                 System.err.println("No user ID found");
             }
+            
             // Insert data
             String insertQuery = "INSERT INTO expenses (account_id, `amount`, description, `date`) VALUES (?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);

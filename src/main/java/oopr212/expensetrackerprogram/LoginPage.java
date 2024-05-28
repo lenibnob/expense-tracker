@@ -66,7 +66,7 @@ public class LoginPage extends javax.swing.JFrame {
         login_btn.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         login_btn.setForeground(new java.awt.Color(255, 255, 255));
         login_btn.setText("Login");
-        login_btn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        login_btn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         login_btn.setMargin(new java.awt.Insets(5, 14, 3, 14));
         login_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

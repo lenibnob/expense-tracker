@@ -36,8 +36,11 @@ public class AddIncomePage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Add Income");
 
+        jLabel3.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel3.setText("Date:");
 
+        add_btn.setBackground(new java.awt.Color(162, 123, 92));
+        add_btn.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         add_btn.setText("Add");
         add_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -45,6 +48,8 @@ public class AddIncomePage extends javax.swing.JFrame {
             }
         });
 
+        cancel_btn.setBackground(new java.awt.Color(162, 123, 92));
+        cancel_btn.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         cancel_btn.setText("Cancel");
         cancel_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,6 +57,7 @@ public class AddIncomePage extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel1.setText("Amount:");
 
         desc_textfield.addActionListener(new java.awt.event.ActionListener() {
@@ -60,6 +66,7 @@ public class AddIncomePage extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel2.setText("Description:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -86,7 +93,7 @@ public class AddIncomePage extends javax.swing.JFrame {
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(desc_textfield)
                     .addComponent(amt_textfield))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,7 +114,7 @@ public class AddIncomePage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cancel_btn)
                     .addComponent(add_btn))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();

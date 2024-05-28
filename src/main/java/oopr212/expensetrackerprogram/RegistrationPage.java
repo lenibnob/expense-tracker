@@ -57,7 +57,7 @@ public class RegistrationPage extends javax.swing.JFrame {
         register_btn.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         register_btn.setForeground(new java.awt.Color(255, 255, 255));
         register_btn.setText("Register");
-        register_btn.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        register_btn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         register_btn.setBorderPainted(false);
         register_btn.setMargin(new java.awt.Insets(5, 14, 3, 14));
         register_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -155,20 +155,26 @@ public class RegistrationPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        dispose();
+        LoginPage page = new LoginPage();
+        page.show();
+    }//GEN-LAST:event_jLabel5MouseClicked
+
     private void register_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_register_btnActionPerformed
         // Get username
         String username = username_textfield.getText();
         // Get password
         String password = pass_textfield.getText();
-        
+
         if(username == null || username.trim().isEmpty() || password == null || password.trim().isEmpty()){
             // if username and password is empty
             JOptionPane.showMessageDialog(null, "Text fields must not be empty");
         }else{
             // Connect to Database
             try(Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/expense_tracker", "root", "");
-            Statement statement = connection.createStatement()){
-            
+                Statement statement = connection.createStatement()){
+
                 // Check if username already exists
                 ResultSet resultSet = statement.executeQuery("SELECT * FROM accounts WHERE username = '" + username + "'");
                 if(resultSet.next()){
@@ -179,19 +185,13 @@ public class RegistrationPage extends javax.swing.JFrame {
                     int rowsAffected = statement.executeUpdate("INSERT INTO accounts (account_id, username, password) VALUES (null, '" + username + "', '" + password + "')");
                     System.out.println(rowsAffected + "row(s) affected");
                     JOptionPane.showMessageDialog(null, "Account added");
-             }
-             connection.close();
+                }
+                connection.close();
             }catch(SQLException e){
                 System.err.println("Error connecting to database " + e.getMessage());
             }
         }
     }//GEN-LAST:event_register_btnActionPerformed
-
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        dispose();
-        LoginPage page = new LoginPage();
-        page.show();
-    }//GEN-LAST:event_jLabel5MouseClicked
 
     /**
      * @param args the command line arguments

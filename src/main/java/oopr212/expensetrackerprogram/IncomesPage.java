@@ -225,7 +225,7 @@ public class IncomesPage extends javax.swing.JFrame {
             int itemID = Integer.parseInt(input);
             
             // Remove
-            int rowsAffected = statement.executeUpdate("DELETE FROM incomes WHERE expense_id = "+ itemID +";");
+            int rowsAffected = statement.executeUpdate("DELETE FROM incomes WHERE income_id = "+ itemID +";");
             System.out.println(rowsAffected + "row(s) affected");
             JOptionPane.showMessageDialog(null, "Item removed (update table to view changes)");
         }catch(SQLException e){

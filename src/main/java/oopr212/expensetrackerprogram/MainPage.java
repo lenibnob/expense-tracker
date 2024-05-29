@@ -5,6 +5,7 @@
 package oopr212.expensetrackerprogram;
 
 import java.sql.*;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -27,112 +28,214 @@ public class MainPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        view_e_btn = new javax.swing.JButton();
-        view_i_btn = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        logout_btn = new javax.swing.JButton();
+        gotoIncomesPage = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        gotoExpensesPage = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        logout = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         bal_btn = new javax.swing.JButton();
+        totalExpenseField = new javax.swing.JTextField();
+        totalIncomeField = new javax.swing.JTextField();
+        balanceField = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Main Page");
+        setResizable(false);
 
-        view_e_btn.setText("View Expenses");
-        view_e_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                view_e_btnActionPerformed(evt);
+        gotoIncomesPage.setBackground(new java.awt.Color(55, 58, 64));
+        gotoIncomesPage.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        gotoIncomesPage.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gotoIncomesPageMouseClicked(evt);
             }
         });
 
-        view_i_btn.setText("View Income");
-        view_i_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                view_i_btnActionPerformed(evt);
+        jLabel4.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Incomes");
+
+        javax.swing.GroupLayout gotoIncomesPageLayout = new javax.swing.GroupLayout(gotoIncomesPage);
+        gotoIncomesPage.setLayout(gotoIncomesPageLayout);
+        gotoIncomesPageLayout.setHorizontalGroup(
+            gotoIncomesPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gotoIncomesPageLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel4)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+        gotoIncomesPageLayout.setVerticalGroup(
+            gotoIncomesPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gotoIncomesPageLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel4)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        gotoExpensesPage.setBackground(new java.awt.Color(55, 58, 64));
+        gotoExpensesPage.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        gotoExpensesPage.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gotoExpensesPageMouseClicked(evt);
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
+        jLabel5.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Expenses");
 
-            },
-            new String [] {
-                "Income", "Expense", "Balance"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        javax.swing.GroupLayout gotoExpensesPageLayout = new javax.swing.GroupLayout(gotoExpensesPage);
+        gotoExpensesPage.setLayout(gotoExpensesPageLayout);
+        gotoExpensesPageLayout.setHorizontalGroup(
+            gotoExpensesPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gotoExpensesPageLayout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(28, 28, 28))
+        );
+        gotoExpensesPageLayout.setVerticalGroup(
+            gotoExpensesPageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gotoExpensesPageLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
 
-        logout_btn.setText("Logout");
-        logout_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logout_btnActionPerformed(evt);
+        logout.setBackground(new java.awt.Color(55, 58, 64));
+        logout.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        logout.setForeground(new java.awt.Color(0, 0, 0));
+        logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoutMouseClicked(evt);
             }
         });
 
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Logout");
+
+        javax.swing.GroupLayout logoutLayout = new javax.swing.GroupLayout(logout);
+        logout.setLayout(logoutLayout);
+        logoutLayout.setHorizontalGroup(
+            logoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(logoutLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel6)
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+        logoutLayout.setVerticalGroup(
+            logoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(logoutLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel6)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        jPanel1.setBackground(new java.awt.Color(238, 238, 238));
+
+        jLabel3.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Balance:");
+
+        bal_btn.setBackground(new java.awt.Color(220, 95, 0));
+        bal_btn.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         bal_btn.setText("Get Balance");
+        bal_btn.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         bal_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bal_btnActionPerformed(evt);
             }
         });
 
+        totalExpenseField.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        totalExpenseField.setForeground(new java.awt.Color(255, 0, 0));
+        totalExpenseField.setEditable(false);
+
+        totalIncomeField.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        totalIncomeField.setForeground(new java.awt.Color(0, 204, 0));
+        totalIncomeField.setEditable(false);
+
+        balanceField.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        balanceField.setEditable(false);
+
+        jLabel1.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Total Expenses:");
+
+        jLabel2.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Total Income: ");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(bal_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(totalIncomeField, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(totalExpenseField, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(balanceField, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(totalExpenseField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(totalIncomeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(balanceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bal_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(view_i_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(view_e_btn))
-                    .addComponent(logout_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(bal_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(15, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(gotoIncomesPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(gotoExpensesPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(view_e_btn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(view_i_btn))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bal_btn)
-                    .addComponent(logout_btn))
-                .addContainerGap(16, Short.MAX_VALUE))
+                    .addComponent(gotoIncomesPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(gotoExpensesPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout_btnActionPerformed
-        // Go back to login page
-        dispose();
-        LoginPage page = new LoginPage();
-        page.show();
-    }//GEN-LAST:event_logout_btnActionPerformed
-
-    private void view_e_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_e_btnActionPerformed
-        dispose();
-        ExpensesPage page = new ExpensesPage();
-        page.show();
-    }//GEN-LAST:event_view_e_btnActionPerformed
-
-    private void view_i_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_i_btnActionPerformed
-        dispose();
-        IncomesPage page = new IncomesPage();
-        page.show();
-    }//GEN-LAST:event_view_i_btnActionPerformed
 
     private void bal_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bal_btnActionPerformed
         // Connect to database
@@ -166,29 +269,39 @@ public class MainPage extends javax.swing.JFrame {
             
             ResultSet resultSet = preparedStatement.executeQuery();
             
-            // Create table model
-            model1 = new DefaultTableModel();
-            jTable1.setModel(model1);
-            
-            // Add columns to the table model
-            ResultSetMetaData metaData = resultSet.getMetaData();
-            int columnCount = metaData.getColumnCount();
-            for (int columnIndex = 1; columnIndex <= columnCount; columnIndex++) {
-                model1.addColumn(metaData.getColumnName(columnIndex));
-            }
-            
-            // Populate the table with data
-            while (resultSet.next()) {
-                Object[] rowData = new Object[columnCount];
-                for (int i = 0; i < columnCount; i++) {
-                    rowData[i] = resultSet.getObject(i + 1);
-                }
-                model1.addRow(rowData);
+            // Populate text fields
+            if(!resultSet.next()){
+                // if no result has been found
+                totalExpenseField.setText("");
+                totalIncomeField.setText("");
+                balanceField.setText("");
+            }else{
+                totalExpenseField.setText("-" + resultSet.getString("total_expense"));
+                totalIncomeField.setText("+" + resultSet.getString("total_income"));
+                balanceField.setText(resultSet.getString("balance"));
             }
         }catch(SQLException e){
             System.err.println("Error connecting to the database" + e.getMessage());
         }
     }//GEN-LAST:event_bal_btnActionPerformed
+
+    private void gotoIncomesPageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gotoIncomesPageMouseClicked
+        dispose();
+        IncomesPage page = new IncomesPage();
+        page.show();
+    }//GEN-LAST:event_gotoIncomesPageMouseClicked
+
+    private void gotoExpensesPageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gotoExpensesPageMouseClicked
+        dispose();
+        ExpensesPage page = new ExpensesPage();
+        page.show();
+    }//GEN-LAST:event_gotoExpensesPageMouseClicked
+
+    private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
+        dispose();
+        LoginPage page = new LoginPage();
+        page.show();
+    }//GEN-LAST:event_logoutMouseClicked
 
     /**
      * @param args the command line arguments
@@ -227,10 +340,18 @@ public class MainPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bal_btn;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JButton logout_btn;
-    private javax.swing.JButton view_e_btn;
-    private javax.swing.JButton view_i_btn;
+    private javax.swing.JTextField balanceField;
+    private javax.swing.JPanel gotoExpensesPage;
+    private javax.swing.JPanel gotoIncomesPage;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel logout;
+    private javax.swing.JTextField totalExpenseField;
+    private javax.swing.JTextField totalIncomeField;
     // End of variables declaration//GEN-END:variables
 }

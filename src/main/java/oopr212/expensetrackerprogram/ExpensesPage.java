@@ -24,10 +24,10 @@ public class ExpensesPage extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        data_btn = new javax.swing.JButton();
-        add_btn = new javax.swing.JButton();
-        remove_btn = new javax.swing.JButton();
-        back_btn = new javax.swing.JButton();
+        remove_btn1 = new javax.swing.JButton();
+        add_btn1 = new javax.swing.JButton();
+        data_btn1 = new javax.swing.JButton();
+        back_btn1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -35,45 +35,49 @@ public class ExpensesPage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Expenses");
 
-        jPanel2.setBackground(new java.awt.Color(63, 78, 79));
+        jPanel2.setBackground(new java.awt.Color(55, 58, 64));
 
-        data_btn.setBackground(new java.awt.Color(162, 123, 92));
-        data_btn.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        data_btn.setForeground(new java.awt.Color(255, 255, 255));
-        data_btn.setText("Get Data");
-        data_btn.addActionListener(new java.awt.event.ActionListener() {
+        remove_btn1.setBackground(new java.awt.Color(234, 32, 32));
+        remove_btn1.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        remove_btn1.setForeground(new java.awt.Color(0, 0, 0));
+        remove_btn1.setText("Remove");
+        remove_btn1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        remove_btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                data_btnActionPerformed(evt);
+                remove_btn1ActionPerformed(evt);
             }
         });
 
-        add_btn.setBackground(new java.awt.Color(162, 123, 92));
-        add_btn.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        add_btn.setForeground(new java.awt.Color(255, 255, 255));
-        add_btn.setText("Add");
-        add_btn.addActionListener(new java.awt.event.ActionListener() {
+        add_btn1.setBackground(new java.awt.Color(36, 139, 214));
+        add_btn1.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        add_btn1.setForeground(new java.awt.Color(0, 0, 0));
+        add_btn1.setText("Add");
+        add_btn1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add_btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_btnActionPerformed(evt);
+                add_btn1ActionPerformed(evt);
             }
         });
 
-        remove_btn.setBackground(new java.awt.Color(162, 123, 92));
-        remove_btn.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        remove_btn.setForeground(new java.awt.Color(255, 255, 255));
-        remove_btn.setText("Remove");
-        remove_btn.addActionListener(new java.awt.event.ActionListener() {
+        data_btn1.setBackground(new java.awt.Color(114, 174, 62));
+        data_btn1.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        data_btn1.setForeground(new java.awt.Color(0, 0, 0));
+        data_btn1.setText("Get Data");
+        data_btn1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        data_btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                remove_btnActionPerformed(evt);
+                data_btn1ActionPerformed(evt);
             }
         });
 
-        back_btn.setBackground(new java.awt.Color(162, 123, 92));
-        back_btn.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        back_btn.setForeground(new java.awt.Color(255, 255, 255));
-        back_btn.setText("Back");
-        back_btn.addActionListener(new java.awt.event.ActionListener() {
+        back_btn1.setBackground(new java.awt.Color(237, 183, 39));
+        back_btn1.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        back_btn1.setForeground(new java.awt.Color(0, 0, 0));
+        back_btn1.setText("Back");
+        back_btn1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        back_btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                back_btnActionPerformed(evt);
+                back_btn1ActionPerformed(evt);
             }
         });
 
@@ -82,32 +86,51 @@ public class ExpensesPage extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(back_btn)
+                .addGap(28, 28, 28)
+                .addComponent(back_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(data_btn)
+                .addComponent(data_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(add_btn)
+                .addComponent(add_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(remove_btn)
-                .addGap(24, 24, 24))
+                .addComponent(remove_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(remove_btn)
-                    .addComponent(add_btn)
-                    .addComponent(data_btn)
-                    .addComponent(back_btn))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(remove_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(add_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(back_btn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(data_btn1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(16, 16, 16))
         );
 
-        jPanel3.setBackground(new java.awt.Color(63, 78, 79));
+        jPanel3.setBackground(new java.awt.Color(238, 238, 238));
 
+        jTable1.setBackground(new java.awt.Color(104, 109, 118));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -131,9 +154,9 @@ public class ExpensesPage extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(19, 19, 19)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -158,25 +181,11 @@ public class ExpensesPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void back_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btnActionPerformed
-        // Jump to MainPage
-        dispose();
-        MainPage page = new MainPage();
-        page.show();
-    }//GEN-LAST:event_back_btnActionPerformed
-
-    private void add_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_btnActionPerformed
-        // Jump to ExpensePage
-        dispose();
-        AddExpensePage page = new AddExpensePage();
-        page.show();
-    }//GEN-LAST:event_add_btnActionPerformed
-
-    private void data_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_data_btnActionPerformed
+    private void remove_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remove_btn1ActionPerformed
         // Connect to database
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/expense_tracker", "root", "");
-             Statement statement = connection.createStatement()) {
-            
+            Statement statement = connection.createStatement()) {
+
             // Account retrieval
             int userID = -1;
             ResultSet accountSet = statement.executeQuery("SELECT userID FROM program_user");
@@ -185,21 +194,54 @@ public class ExpensesPage extends javax.swing.JFrame {
             }else{
                 System.err.println("No user ID found");
             }
-            
+
+            String input = JOptionPane.showInputDialog(null,"Enter Expense ID: ");
+            int itemID = Integer.parseInt(input);
+
+            // Remove
+            int rowsAffected = statement.executeUpdate("DELETE FROM expenses WHERE expense_id = "+ itemID +";");
+            System.out.println(rowsAffected + "row(s) affected");
+            JOptionPane.showMessageDialog(null, "Item removed (update table to view changes)");
+        }catch(SQLException e){
+            System.err.println("Error connecting to the database" + e.getMessage());
+        }
+    }//GEN-LAST:event_remove_btn1ActionPerformed
+
+    private void add_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_btn1ActionPerformed
+        // Jump to AddIncomesPage
+        dispose();
+        AddExpensePage page = new AddExpensePage();
+        page.show();
+    }//GEN-LAST:event_add_btn1ActionPerformed
+
+    private void data_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_data_btn1ActionPerformed
+        // Connect to database
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/expense_tracker", "root", "");
+            Statement statement = connection.createStatement()) {
+
+            // Account retrieval
+            int userID = -1;
+            ResultSet accountSet = statement.executeQuery("SELECT userID FROM program_user");
+            if(accountSet.next()){
+                userID = accountSet.getInt("userID");
+            }else{
+                System.err.println("No user ID found");
+            }
+
             // Main Query
             ResultSet resultSet = statement.executeQuery("SELECT expense_id, amount, description, date FROM `expenses` WHERE account_id = " + userID);
-            
+
             // Create table model
             model1 = new DefaultTableModel();
             jTable1.setModel(model1);
-            
+
             // Add columns to the table model
             ResultSetMetaData metaData = resultSet.getMetaData();
             int columnCount = metaData.getColumnCount();
             for (int columnIndex = 1; columnIndex <= columnCount; columnIndex++) {
                 model1.addColumn(metaData.getColumnName(columnIndex));
             }
-            
+
             // Populate the table with data
             while (resultSet.next()) {
                 Object[] rowData = new Object[columnCount];
@@ -211,33 +253,13 @@ public class ExpensesPage extends javax.swing.JFrame {
         }catch(SQLException e){
             System.err.println("Error connecting to the database" + e.getMessage());
         }
-    }//GEN-LAST:event_data_btnActionPerformed
+    }//GEN-LAST:event_data_btn1ActionPerformed
 
-    private void remove_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remove_btnActionPerformed
-        // Connect to database
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/expense_tracker", "root", "");
-             Statement statement = connection.createStatement()) {
-            
-            // Account retrieval
-            int userID = -1;
-            ResultSet accountSet = statement.executeQuery("SELECT userID FROM program_user");
-            if(accountSet.next()){
-                userID = accountSet.getInt("userID");
-            }else{
-                System.err.println("No user ID found");
-            }
-            
-            String input = JOptionPane.showInputDialog(null,"Enter Expense ID: ");
-            int itemID = Integer.parseInt(input);
-            
-            // Remove
-            int rowsAffected = statement.executeUpdate("DELETE FROM expenses WHERE expense_id = "+ itemID +";");
-            System.out.println(rowsAffected + "row(s) affected");
-            JOptionPane.showMessageDialog(null, "Item removed (update table to view changes)");
-        }catch(SQLException e){
-            System.err.println("Error connecting to the database" + e.getMessage());
-        }
-    }//GEN-LAST:event_remove_btnActionPerformed
+    private void back_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_btn1ActionPerformed
+        dispose();
+        MainPage page = new MainPage();
+        page.show();
+    }//GEN-LAST:event_back_btn1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,13 +297,13 @@ public class ExpensesPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton add_btn;
-    private javax.swing.JButton back_btn;
-    private javax.swing.JButton data_btn;
+    private javax.swing.JButton add_btn1;
+    private javax.swing.JButton back_btn1;
+    private javax.swing.JButton data_btn1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JButton remove_btn;
+    private javax.swing.JButton remove_btn1;
     // End of variables declaration//GEN-END:variables
 }

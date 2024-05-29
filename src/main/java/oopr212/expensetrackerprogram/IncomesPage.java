@@ -35,44 +35,49 @@ public class IncomesPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Incomes");
+        setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(63, 78, 79));
+        jPanel1.setBackground(new java.awt.Color(55, 58, 64));
         jPanel1.setToolTipText("");
 
-        back_btn.setBackground(new java.awt.Color(162, 123, 92));
+        back_btn.setBackground(new java.awt.Color(237, 183, 39));
         back_btn.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        back_btn.setForeground(new java.awt.Color(255, 255, 255));
+        back_btn.setForeground(new java.awt.Color(0, 0, 0));
         back_btn.setText("Back");
+        back_btn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         back_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 back_btnActionPerformed(evt);
             }
         });
 
-        data_btn.setBackground(new java.awt.Color(162, 123, 92));
+        data_btn.setBackground(new java.awt.Color(114, 174, 62));
         data_btn.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        data_btn.setForeground(new java.awt.Color(255, 255, 255));
+        data_btn.setForeground(new java.awt.Color(0, 0, 0));
         data_btn.setText("Get Data");
+        data_btn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         data_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 data_btnActionPerformed(evt);
             }
         });
 
-        add_btn.setBackground(new java.awt.Color(162, 123, 92));
+        add_btn.setBackground(new java.awt.Color(36, 139, 214));
         add_btn.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        add_btn.setForeground(new java.awt.Color(255, 255, 255));
+        add_btn.setForeground(new java.awt.Color(0, 0, 0));
         add_btn.setText("Add");
+        add_btn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_btnActionPerformed(evt);
             }
         });
 
-        remove_btn.setBackground(new java.awt.Color(162, 123, 92));
+        remove_btn.setBackground(new java.awt.Color(234, 32, 32));
         remove_btn.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        remove_btn.setForeground(new java.awt.Color(255, 255, 255));
+        remove_btn.setForeground(new java.awt.Color(0, 0, 0));
         remove_btn.setText("Remove");
+        remove_btn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         remove_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 remove_btnActionPerformed(evt);
@@ -84,33 +89,55 @@ public class IncomesPage extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(back_btn)
+                .addGap(29, 29, 29)
+                .addComponent(back_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(data_btn)
+                .addComponent(data_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(add_btn)
+                .addComponent(add_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(remove_btn)
-                .addGap(25, 25, 25))
+                .addComponent(remove_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(back_btn)
-                    .addComponent(data_btn)
-                    .addComponent(add_btn)
-                    .addComponent(remove_btn))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(remove_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(add_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(back_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(data_btn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(14, 14, 14))
         );
 
-        jPanel3.setBackground(new java.awt.Color(63, 78, 79));
+        jPanel3.setBackground(new java.awt.Color(238, 238, 238));
         jPanel3.setToolTipText("");
 
+        jTable1.setBackground(new java.awt.Color(104, 109, 118));
+        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -127,16 +154,16 @@ public class IncomesPage extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(23, 23, 23)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -153,8 +180,9 @@ public class IncomesPage extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -277,17 +305,12 @@ public class IncomesPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_btn;
-    private javax.swing.JButton add_btn1;
     private javax.swing.JButton back_btn;
-    private javax.swing.JButton back_btn1;
     private javax.swing.JButton data_btn;
-    private javax.swing.JButton data_btn1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton remove_btn;
-    private javax.swing.JButton remove_btn1;
     // End of variables declaration//GEN-END:variables
 }

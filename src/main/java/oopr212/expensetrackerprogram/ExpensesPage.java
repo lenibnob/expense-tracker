@@ -34,6 +34,7 @@ public class ExpensesPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Expenses");
+        setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(55, 58, 64));
 

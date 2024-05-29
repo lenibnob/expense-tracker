@@ -37,6 +37,7 @@ public class AddExpensePage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Add Expense");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(238, 238, 238));
 

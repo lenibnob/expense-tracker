@@ -36,6 +36,7 @@ public class AddIncomePage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Add Income");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(238, 238, 238));
 
